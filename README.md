@@ -20,9 +20,9 @@ And you need this to be dynamic by changing or adding somwhere else in the app, 
 
 The crumbs application helper method can also accept options:
 
-:delimiter - in addition to specifying the default delimiter in the init file, you can change it on the fly with this option.
-:link - default as true, which operates as normal. set false if you dont want the breadcrumbs to link at all (just a reference)
-:exclude_first - dont even include the first crumb (usually main menu / root)
+:delimiter - in addition to specifying the default delimiter in the init file, you can change it on the fly with this option.      
+:link - default as true, which operates as normal. set false if you dont want the breadcrumbs to link at all (just a reference)     
+:exclude_first - dont even include the first crumb (usually main menu / root)     
 
 Those helped me include the crumb in the title:
     <title><%= crumbs :delimiter => ' > ', :link => false, :exclude_first => true %></title>
