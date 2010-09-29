@@ -31,8 +31,9 @@ class Breadcrumb
   end
   
   def self.configure(&blk)
-    instance.crumbs = {}
-    instance.trails = []
+#   commenting following out from original, so we can call configure many times adding on to existing config
+#    instance.crumbs = {}
+#    instance.trails = []
     instance.instance_eval &blk
     instance.validate
   end

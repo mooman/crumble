@@ -1,6 +1,33 @@
-Crumble - It's like breadcrumbs for your Rails application!
+Modifications from original Crumble
+===================================
 
-It's a tiny combination of a helper and a simple configuration class to make breadcrumbs cool, because they're not.
+Call Breadcrumb.configure multiple time in many places in your Rails app.
+
+Say, in your initializer file you have
+
+    Breadcrumb.configure do
+      crumb :root, 'Main', :main_path
+      ...
+    end
+
+And you need this to be dynamic by changing or adding somwhere else in the app, just do
+
+    Braedcrumb.configure do
+      # whatever changes or additions
+      # you can also use what was defined in other places
+      trail :foo, :bar, [:root, :foos]
+    end
+
+The crumbs application helper method can also accept options:
+
+:delimiter - in addition to specifying the default delimiter in the init file, you can change it on the fly with this option.
+:link - default as true, which operates as normal. set false if you dont want the breadcrumbs to link at all (just a reference)
+:exclude_first - dont even include the first crumb (usually main menu / root)
+
+Those helped me include the crumb in the title:
+    <title><%= crumbs :delimiter => ' > ', :link => false, :exclude_first => true %></title>
+
+Thanks to the original crumble! see the repo here on github.
 
 Installation
 ============
